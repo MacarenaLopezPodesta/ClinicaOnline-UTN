@@ -9,5 +9,5 @@ pedidos por la web seleccionando el profesional o la especialidad. La duración 
 30 minutos.”
 
 <p  align="center">
-<img src='.archivos/Captura1.PNG' width='200'>
+<img src='../archivos/Captura1.PNG' width='200'>
 </p>
