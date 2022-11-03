@@ -7,7 +7,26 @@ Trabajan en ella profesionales de diversas especialidades, que ocupan los consul
 disponibilidad, y reciben en ellos pacientes con turno para consulta o tratamiento. Dichos turnos son
 pedidos por la web seleccionando el profesional o la especialidad. La duración mínima de un turno es
 30 minutos.”
-
 <p  align="center">
-<img src='archivos/Captura1.PNG' width='200'>
+<img src='archivos/logo.png' width='200'>
+</p>
+### Log In
+<p  align="center">
+<img src='archivos/Captura1.png' width='600'>
+</p>
+### Seleccion de registros: Paciente o Especialista
+<p  align="center">
+<img src='archivos/Captura2.PNG' width='600'>
+</p>
+### Registro Especialista
+<p  align="center">
+<img src='archivos/Captura3.PNG' width='600'>
+</p>
+### Registro Paciente
+<p  align="center">
+<img src='archivos/Captura4.PNG' width='600'>
+</p>
+### Bienvenida
+<p  align="center">
+<img src='archivos/Captura5.PNG' width='600'>
 </p>
