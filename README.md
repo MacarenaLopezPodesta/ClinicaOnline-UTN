@@ -10,9 +10,9 @@ pedidos por la web seleccionando el profesional o la especialidad. La duración 
 <p  align="center">
 <img src='archivos/logo.png' width='200'>
 </p>
-### Log In
+## Log In
 <p  align="center">
-<img src='archivos/Captura1.png' width='600'>
+<img src='archivos/Captura1.PNG' width='600'>
 </p>
 ### Seleccion de registros: Paciente o Especialista
 <p  align="center">
