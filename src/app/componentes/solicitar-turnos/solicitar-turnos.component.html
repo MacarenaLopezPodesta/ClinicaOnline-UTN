@@ -1,0 +1,65 @@
+<div class="container">
+    <header >
+      <h2>Solicitar Turno</h2>
+    </header>
+    <div>
+      <div class="card card-body espFot"  [hidden]="auxEs">
+        <tr *ngFor="let esp of especialidades">
+          <button (click)="eligeEspecialidad(esp)">{{esp.nombre}}</button>
+        </tr>
+      </div>
+  
+      <div class="card card-body espFot" [hidden]="!auxEsp">
+        <tr *ngFor="let esp of especialistasFilter">
+          <td><img src="{{esp.foto1}}" alt="{{esp.nombre}}"  title="{{esp.nombre}} {{esp.apellido}}" (click)="eligeEspecialista(esp)">
+          </td>
+        </tr>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <label for="" [hidden]="!auxHor">Seleccione una fecha: {{turno.fecha}}</label>
+          <div class="container-fluid horario" [hidden]="!auxHor">
+            <tr *ngFor="let dia of dias">
+              <td><button class="btnDia" (click)="eligeDia(dia)">{{dia}}</button>
+              </td>
+            </tr>
+          </div>
+          <label for="" [hidden]="!auxHor">Seleccione un horario: {{turno.hora}}</label>
+          <div class="container-fluid horario" [hidden]="!auxHor">
+            <tr *ngFor="let hora of horario">
+              <td><button class="btnHora" (click)="eligeHorario(hora)">{{hora}}</button>
+              </td>
+            </tr>
+          </div>
+          <label for="" [hidden]="!auxHor">Turno Seleccionado: {{diaSeleccionado}} - {{horaSeleccionada}}</label>
+          <br>
+          <button class="btnCargar" [hidden]="!auxHor" (click)="cargarTurno()">Cargar Turno</button>
+        </div>
+        <div class="col-md-6" [hidden]="!auxHor" *ngIf="viewPacientes">
+         <img src="{{usuario.foto1}}" alt="{{usuario.nombre}} {{usuario.apellido}}">
+         <br>
+         <p>{{usuario.nombre}} {{usuario.apellido}}</p>
+        </div>
+        <div class="col-md-6" [hidden]="!auxHor" *ngIf="!viewPacientes">
+          <app-seleccion-paciente (onSeleccionPaciente)="elegirPaciente($event)"></app-seleccion-paciente>
+          <div>
+            <label class="fuente" for="nombre">Especialidad seleccionada:</label>
+           
+            <div class="form-group"  id="seleccion-especialistas">
+                
+       
+                    
+                    <li>
+                   
+                     {{this.paciente.nombre + " "+this.paciente.apellido}} 
+                       </li>
+              
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  

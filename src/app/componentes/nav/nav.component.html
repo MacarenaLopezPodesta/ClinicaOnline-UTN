@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> <img src="../../../favicon.ico" alt="">Clinica Online</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"  *ngIf="auth" >
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          </li>
+         
+         <li class="nav-item" *ngIf="authAdmin">
+          <a class="nav-link"  >Usuarios</a>
+                <ul>
+                  <li><a href="/usuarios">Info listados</a></li>
+                  <li><a href="/registro">Registro Pacientes/Espacialistas </a></li>
+                  <li><a href="/registro/admin">Registro Administrador</a></li>
+                </ul>
+          </li>
+           
+          <li class="nav-item"  *ngIf="paciente || especialista && !authAdmin ">
+            <a class="nav-link" routerLink="/misTurnos">Mis turnos</a>
+          </li>
+          <li class="nav-item"  *ngIf="authAdmin" >
+            <a class="nav-link" routerLink="/turnos">Turnos</a>
+          </li>
+          <li class="nav-item"  *ngIf="paciente || authAdmin">
+            <a class="nav-link" routerLink="/solicitarTurnos">Solicitar turnos</a>
+          </li>
+          
+          
+          <li class="nav-item"   *ngIf="auth" >
+            <a class="nav-link" routerLink="/miPerfil">Mi perfil</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+       
+          <button class="btn" *ngIf="auth" (click)="cerrarSesion()" class="btnIngresar">Cerrar</button>
+        </form>
+      </div>
+    </div>
+  </nav>

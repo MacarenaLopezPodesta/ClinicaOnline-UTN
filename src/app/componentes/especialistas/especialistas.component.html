@@ -1,0 +1,40 @@
+<section class="py-5 text-center container">
+    <h1 class="fw-light">Especialistas</h1>
+</section>
+<div id="container">
+<div id="box">
+    <table class="table table-responsive">
+        <thead>
+            <tr style="background-color:rgb(200, 209, 245);">
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Dni</th>
+                <th>Edad</th>
+                <th>Correo</th>
+                <th>Perfil</th>
+                <th>Estado</th>
+                <th></th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+           
+           
+            <tr *ngFor="let user of this.userService.especialistas">
+                <td>{{user.nombre}}</td>
+                <td>{{user.apellido}}</td>
+                <td>{{user.dni}}</td>
+                <td>{{user.edad}}</td>
+                <td>{{user.mail}}</td>
+                <td>{{user.especialidad}}</td>
+                        <td>Habilitado</td>
+                       <td></td> 
+                       <td></td> 
+                        <td class="form-check form-switch switch">
+                            <input class="form-check-input" type="checkbox" role="switch" [checked]="user.habilitado" (change)="CambiarEstado(user)" > 
+                        </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+</div>

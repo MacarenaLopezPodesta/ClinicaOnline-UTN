@@ -1,0 +1,10 @@
+<div class="col esp" *ngFor="let especialidad of this.especialidades">
+    <div class="card card-body espFoto" (click)="SeleccionarEspecialidad(especialidad)" *ngIf="this.userService.logueado && !this.userService.EsAdmin()">
+        <img width="70px" height="70px" style="border-radius: 50%; margin:auto;" [src]="especialidad.foto1">
+        <h6>{{especialidad.nombre}}</h6>
+    </div>
+
+    <div class="card card-body" (click)="SeleccionarEspecialidad(especialidad)" *ngIf="!this.userService.logueado || this.userService.EsAdmin()">
+        <h6 class="my-0">{{especialidad.nombre}}</h6>
+    </div>
+</div>

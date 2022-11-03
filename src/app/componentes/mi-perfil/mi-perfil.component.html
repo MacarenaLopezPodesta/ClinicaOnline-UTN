@@ -1,0 +1,91 @@
+<div id="contenedor" class="text-center">
+ 
+   
+    <div class="d-flex justify-content-center spin" role="status" [hidden]="loadHistoria">
+        <div class="" id="setHistoria" [hidden]="!loadHistoria" alt="ClinicaOnline">
+            <button id="btnCerrar" (click)="cerrarHistoria()">X</button>
+            <h5>Historia Clinica: {{usuario.nombre}} {{usuario.apellido}}</h5>
+            <ul class="list-group mb-3 text-muted"  *ngFor="let hist of historia">
+                <li class="list-group-item d-flex">FECHA: {{hist.fecha}}</li>
+                <li class="list-group-item d-flex">ALTURA: {{hist.altura}} cm</li>
+                <li class="list-group-item d-flex">PESO: {{hist.peso}} kg</li>
+                <li class="list-group-item d-flex">PRESION: {{hist.presion}}</li>
+                <li class="list-group-item d-flex">TEMPERATURA:{{hist.temperatura}}°C</li>
+                <li class="list-group-item d-flex" *ngIf="hist.clave">{{hist.clave}} : {{hist.valor}}</li>
+                <li class="list-group-item d-flex" *ngIf="hist.clave1">{{hist.clave1}} : {{hist.valor1}}</li>
+                <li class="list-group-item d-flex" *ngIf="hist.clave2">{{hist.clave2}} : {{hist.valor2}}</li>
+            </ul>
+            <!--button class="btn btn-lg btn-primary btn-success" (click)="guardarHistoria()">Descargar PDF</button-->
+            <br>
+        </div>
+    </div>
+    <main class="perfil slide-in-blurred-left">
+        <div class="row">
+            <ul>
+                <li *ngIf="usuario.paciente">
+                    <h2>Perfil de Paciente</h2>
+                </li>
+                <li *ngIf="usuario.especialista">
+                    <h2>Perfil de Especialista</h2>
+                </li>
+                <li *ngIf="usuario.admin">
+                    <h2>Perfil de Administrador</h2>
+                </li>
+                <li><img src="{{usuario.foto1}}" alt=""></li>
+                <li>Nombre: {{usuario.nombre}}</li>
+                <li>Apellido: {{usuario.apellido}}</li>
+                <li>Edad:{{usuario.edad}}</li>
+                <li>Dni:{{usuario.dni}}</li>
+                <li>Mail:{{usuario.mail}}</li>
+                <li *ngIf="usuario.paciente">Obra Social: {{usuario.obraSocial}}</li>
+                <li *ngIf="usuario.paciente"><button (click)="getHistoria()">Historia Clinica</button></li>
+                <li *ngIf="usuario.especialista">Especialidad: {{usuario.especialidad}}</li>
+                <li *ngIf="usuario.especialista"><button (click)="configuracion()">AÑADIR HORARIO</button></li>
+                <br>
+                
+                <!--button *ngIf="usuario.especialista" class="btn btn-lg btn-primary btn-success" (click)="guardarTurnos()">Descargar PDF</button-->
+            </ul>
+            <br>
+        </div>
+    </main>
+    <div class="d-flex justify-content-center spin" role="status" [hidden]="loadAtencion">
+        <div class="" id="setHorario" [hidden]="!loadAtencion" alt="ClinicaOnline">
+            <button id="btnCerrar" (click)="cerrarConfiguracion()">OCULTAR</button>
+            <br>
+            <label class="fuente mt-2" for="tipo">Especialidad</label>
+            <br>
+            <select name="tipo" [(ngModel)]="especialidad" style="width:250px;">
+                <option [value]="item" *ngFor="let item of usuario.especialidad">{{item}}</option>
+            </select>
+            <br>
+            <label class="fuente mt-2" for="tipo">Dia de la Semana</label>
+            <br>
+            <select name="tipo" [(ngModel)]="dia" style="width:250px;">
+                <option [value]="item" *ngFor="let item of dias">{{item}}</option>
+            </select>
+            <br>
+                <label class="fuente" for="tipo">Hora Inicio</label>
+                <br>
+                <select *ngIf="dia != 'sabado'" name="tipo" [(ngModel)]="horaDesde" style="width:250px;">
+                    <option  [value]="item" *ngFor="let item of horarioDesde">{{item}}</option>
+                  
+                </select>
+                <select *ngIf="dia == 'sabado'" name="tipo" [(ngModel)]="horaDesde" style="width:250px;">
+                    <option [value]="item" *ngFor="let item of horarioDesdeSab">{{item}}</option>
+                </select>
+                <br>
+                <label class="fuente mt-3" for="tipo">Hora Finalización</label>
+                <br>
+                <select name="tipo" *ngIf="dia != 'sabado'" [(ngModel)]="horaHasta" style="width:250px;">
+                    <option [value]="item" *ngFor="let item of horarioHasta">{{item }}</option>
+                </select>
+                <select name="tipo" *ngIf="dia == 'sabado'" [(ngModel)]="horaHasta" style="width:250px;">
+                    <option [value]="item" *ngFor="let item of horarioHastaSab">{{item}}</option>
+                </select>
+                <br>
+                <button class="mt-2" (click)="guardarHorario()">Guardar Horario</button>
+            
+        </div>
+    </div>
+
+</div>

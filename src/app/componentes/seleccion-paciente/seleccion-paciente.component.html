@@ -1,0 +1,12 @@
+<ul class="list-group mb-3">
+    <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+            <h6 class="my-0">Elegir Paciente</h6>
+            <ul class="list-group mb-3 text-muted">
+                <li  (click)="eligePaciente(pac)" class="list-group-item d-flex justify-content-between lh-condensed " *ngFor="let pac of listado">
+                {{pac.nombre}} {{pac.apellido}}
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>

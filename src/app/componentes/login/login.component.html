@@ -1,0 +1,89 @@
+<body>
+  
+  <div class="container" id="container">
+      <div class="form-container sign-in-container">
+          <form [formGroup]="form" (ngSubmit)="Login()">
+              <h1>INICIO DE SESIÓN</h1>
+  
+        
+              <label>Correo electrónico</label>
+        <small class="invalid" *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched
+          || form.controls['email'].errors?.['email']">
+          Email inválido.
+        </small>
+        <input type="email" id="email" formControlName="email">
+  
+              <label>Contraseña</label>
+        <small class="invalid" *ngIf="form.controls['clave'].errors?.['required'] && form.controls['clave'].touched">
+          Contraseña inválida.
+        </small>
+        <input type="password" id="clave" formControlName="clave">
+         
+        <span>Ingreso rápido</span>
+        <!--div class="rapido-container">
+                  <a (click)='InicioAutomatico("manuel@gmail.com","manuel")' class="rapido" appOscurecer appPresionar>
+            <img src="https://firebasestorage.googleapis.com/v0/b/clinicaonline-kv.appspot.com/o/fotos%2Favatar3.png?alt=media&token=64ad6136-7ea1-4d1e-9b94-1ee90e844bc6" width="27px">   
+          </a>
+          <a (click)='InicioAutomatico("nko71859@zcrcd.com","123asd")' class="rapido" appOscurecer appPresionar>
+            <img src="https://firebasestorage.googleapis.com/v0/b/clinicaonline-kv.appspot.com/o/fotos%2Favatar4.png?alt=media&token=6753ee17-c6f1-474f-a2b4-16727e6da941" width="27px">   
+          </a>
+          <a (click)='InicioAutomatico("zod66565@jiooq.com","123asd")' class="rapido" appOscurecer appPresionar>
+            <img src="https://firebasestorage.googleapis.com/v0/b/clinicaonline-kv.appspot.com/o/fotos%2Favatar1.png?alt=media&token=ec79b46b-667d-4273-afdb-762ccf667a0d" width="27px">   
+          </a>
+                  <a (click)='InicioAutomatico("ugq84795@jeoce.com","123asd")' class="rapido" appOscurecer appPresionar>
+            <img src="https://firebasestorage.googleapis.com/v0/b/clinicaonline-kv.appspot.com/o/fotos%2Fesp.png?alt=media&token=ac3f21d9-ee69-4804-bf3b-305f09505564" width="27px">   
+          </a>
+          <a (click)='InicioAutomatico("vhu08132@zcrcd.com","123asd")' class="rapido" appOscurecer appPresionar>
+            <img src="https://firebasestorage.googleapis.com/v0/b/clinicaonline-kv.appspot.com/o/fotos%2Fesp.png?alt=media&token=ac3f21d9-ee69-4804-bf3b-305f09505564" width="27px">   
+          </a>
+          <a (click)='InicioAutomatico("admin@admin.com","123456")' class="rapido" appOscurecer appPresionar>
+            <img src="https://firebasestorage.googleapis.com/v0/b/clinicaonline-kv.appspot.com/o/fotos%2Fadm.png?alt=media&token=03812e50-e079-4087-be5e-8e94b0233692" width="24px">   
+          </a>
+              </div-->
+              <div id="usuario">
+                <div id="box">
+                  <tr >
+                    <td  (click)='InicioAutomatico("mario@gmail.com","mario1")'><img class="image" src="https://firebasestorage.googleapis.com/v0/b/relevamiento-e02df.appspot.com/o/mario%40gmail.com_2?alt=media&token=bd84aedc-7f9b-48b8-b487-5bebd68a6335">
+                      </td>
+                  </tr>
+                  <tr >
+                    <td  (click)='InicioAutomatico("pedro@gmail.com","pedro1")'><img class="image" src="https://firebasestorage.googleapis.com/v0/b/relevamiento-e02df.appspot.com/o/pedro%40gmail.com_2?alt=media&token=7af1125d-54af-4249-81d6-0e3ad54c7d15">
+                      </td>
+                  </tr>
+                  <tr >
+                    <td  (click)='InicioAutomatico("manuela@gmail.com","manuela")'><img class="image" src="https://firebasestorage.googleapis.com/v0/b/relevamiento-e02df.appspot.com/o/manuela%40gmail.com_1?alt=media&token=80794f9c-c700-460a-861f-04ee01f5522e">
+                      </td>
+                  </tr>
+                  <tr >
+                    <td  (click)='InicioAutomatico("eduardo@gmail.com","eduardo")'><img class="image" src="https://firebasestorage.googleapis.com/v0/b/relevamiento-e02df.appspot.com/o/eduardo%40gmail.com_1?alt=media&token=270c8a28-84db-48f7-8684-d9d45d3adc86">
+                      </td>
+                  </tr>
+                  <tr >
+                    <td  (click)='InicioAutomatico("margarita@gmail.com","margarita")'><img class="image" src="https://firebasestorage.googleapis.com/v0/b/relevamiento-e02df.appspot.com/o/margarita%40gmail.com_1?alt=media&token=54f99c1e-5bf2-4831-ba62-6a4fabd26979">
+                      </td>
+                  </tr>
+                 
+                    <tr>
+                        <td  (click)='InicioAutomatico("admin@gmail.com","44048252")'><img class="image" src="https://firebasestorage.googleapis.com/v0/b/relevamiento-e02df.appspot.com/o/admin%40gmail.com_1?alt=media&token=cdb451d7-4d76-4d33-92e9-53c639854a9a">
+                        </td>
+                    </tr>
+                   
+
+                   
+                </div>
+            </div>
+        
+              <button type="submit" class="ingreso">Ingresar</button>
+          </form>
+      </div>
+      <div class="overlay-container">
+          <div class="overlay">
+              <div class="overlay-panel overlay-right">
+                  <h3>¿Necesitas crear una cuenta?</h3>
+          <p>Regístrese como paciente o especialista</p>
+                  <button class="ingreso ghost" id="signUp" routerLink="registro">Registrarse</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>

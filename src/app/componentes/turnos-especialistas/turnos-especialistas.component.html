@@ -1,0 +1,136 @@
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <div class="d-flex align-items-center text-dark text-decoration-none">
+        <h2 class="fs-4">Listado de turnos</h2>
+      </div>
+    </header>
+  
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <app-listado-turnos [listadoTurnos]="listadoTurnos" (turnoSeleccionado)="tomarTurnoParaDetalles($event)">>
+        </app-listado-turnos>
+      </div>
+    </div>
+  
+    <div class="row align-items-md-stretch" *ngIf="turnoView">
+      <div class="col-md-4">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Cancelar turno</h2>
+          <label for="">Comentario:</label>
+          <br>
+          <div class="md-form">
+            <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput [(ngModel)]="comentario"></textarea>
+          </div>
+          <br>
+          <br>
+          <button class="btn btn-light" (click)="cancelarTurno()" type="button">Cancelar</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Rechazar turno</h2>
+          <p>Fecha: {{turno.fecha}}</p>
+          <p>Hora: {{turno.hora }}</p>
+          <br>
+          <button class="btn btn-danger" (click)="rechazarTurno()" type="button">Rechazar</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Aceptar turno</h2>
+          <p>Fecha: {{turno.fecha}}</p>
+          <p>Hora: {{turno.hora}}</p>
+          <br>
+          <button class="btn btn-success" (click)="aceptarTurno()" type="button">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row align-items-md-stretch" *ngIf="turnoEstado">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Finalizar turno</h2>
+          <p>Especialidad: {{turno.especialidad}}</p>
+          <label for="">Comentario:</label>
+          <div class="md-form">
+            <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput [(ngModel)]="comentario"></textarea>
+          </div>
+          <br>
+          <button class="btn btn-outline-danger" type="button" (click)="finalizarTurno()">Finalizar</button>
+        </div>
+      </div>
+      <div class="col-md-6" *ngIf="turno.estado == 'REALIZADO'">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Historia Clinica</h2>
+          <form [formGroup]="formulario" class="row register-form">
+                <div class="form-group">
+                    <label class="fuente" for="altura">Altura(cm):</label>
+                    <span *ngIf="this.formulario.get('altura')?.hasError('required')"
+                        class="text-danger">
+                        *</span>
+                    <input type="number" class="form-control" formControlName="altura" name="altura"
+                        placeholder="altura" value="" />
+                </div>
+                <div class="form-group">
+                    <label class="fuente" for="peso">Peso:</label>
+                    <span *ngIf="this.formulario.get('peso')?.hasError('required')"
+                        class="text-danger">
+                        *</span>
+                    <input type="number" class="form-control" formControlName="peso"
+                        name="peso" placeholder="peso" value="" />
+                </div>
+                <div class="form-group">
+                    <label class="fuente" for="presion">Presion:</label>
+                    <span *ngIf="this.formulario.get('presion')?.hasError('required')"
+                        class="text-danger">
+                        *</span>
+                    <input type="text" class="form-control" formControlName="presion" name="presion"
+                        placeholder="presion" value="" />
+                </div>
+                <div class="form-group">
+                    <label class="fuente" for="temperatura">Temperatura:</label>
+                    <span *ngIf="this.formulario.get('temperatura')?.hasError('required')"
+                        class="text-danger">
+                        *</span>
+                    <input type="number" class="form-control" formControlName="temperatura" name="temperatura"
+                        placeholder="temperatura" value="" />
+                </div>
+                <div class="form-group">
+                    <label class="fuente" for="nombre">Dato</label>
+                    <input type="text" class="form-control" formControlName="clave"
+                        name="clave" placeholder="" value="" />
+                    <input type="text" class="form-control" formControlName="valor"
+                        name="valor" placeholder="" value="" />
+                </div>
+                <div class="form-group">
+                  <label class="fuente" for="nombre">Dato</label>
+                  <input type="text" class="form-control" formControlName="clave1"
+                      name="clave1" placeholder="" value="" />
+                  <input type="text" class="form-control" formControlName="valor1"
+                      name="valor1" placeholder="" value="" />
+              </div>
+              <div class="form-group">
+                <label class="fuente" for="nombre">Dato</label>
+                <input type="text" class="form-control" formControlName="clave2"
+                    name="clave2" placeholder="" value="" />
+                <input type="text" class="form-control" formControlName="valor2"
+                    name="valor2" placeholder="" value="" />
+            </div>
+            <br>
+                <input type="submit" class="btn btn-success" value="Guardar"
+                    (click)="guardarHistoria()" />
+          
+        </form>
+      </div>
+      <div class="col-md-6" *ngIf="estadoResenia">
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Reseña</h2>
+            <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput [(ngModel)]="resenia" readonly="true"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  

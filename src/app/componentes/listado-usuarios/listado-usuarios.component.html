@@ -1,0 +1,42 @@
+<div id="container">
+    <div id="box">
+        <table class="table table-responsive">
+            <thead>
+                <tr style="background-color:rgb(200, 209, 245);">
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Dni</th>
+                    <th>Edad</th>
+                    <th>Correo</th>
+                    <th>Perfil</th>
+                    <th>Estado</th>
+                    <th>H.Clinica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pac of listadoPacientes">
+                    <td>{{pac.nombre}}</td>
+                    <td>{{pac.apellido}}</td>
+                    <td>{{pac.dni}}</td>
+                    <td>{{pac.edad}}</td>
+                    <td>mal</td>
+                    <td>Paciente</td>
+                    <td>Activa</td>
+                    <td><img src="{{pac.foto1}}" title="{{pac.nombre}} {{pac.apellido}}" class=" btn-circle" (click)="eligePaciente(pac)"></td>
+                    <button class="btn btn-float" class="btn-circle flicker-3" title="Descargar Turnos {{pac.apellido}}"  type="button" id="btnDescarga" (click)="descargaPaciente(pac)">D</button>
+                </tr>
+                <tr *ngFor="let esp of listadoEsp">
+                    <td>{{esp.nombre}}</td>
+                    <td>{{esp.apellido}}</td>
+                    <td>{{esp.dni}}</td>
+                    <td>{{esp.edad}}</td>
+                    <td>{{esp.mail}}</td>
+                    <td>{{esp.especialidad}}</td>
+                    <td><button type="button" class="btn btn-dark  btn-circle" (click)="eligeEspecialista(esp)">+<i class="fa fa-check"></i> </button></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

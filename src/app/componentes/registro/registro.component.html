@@ -1,0 +1,211 @@
+<div id="container">
+    <div class="row col-lg-12" id="box" [hidden]="inicio">
+        <div class="col-lg-6">
+            <img src="./../../../assets/paciente.png" notImage alt="" title="PACIENTES" class="img-usuarios" (click)="setPaciente()">
+        </div>
+        <div class="col-lg-6">
+            <img src="./../../../assets/especialista.png" notImage alt="" title="ESPECIALISTAS" class="img-usuarios" (click)="setEspecialista()">
+        </div>
+    </div>
+    <div class="register" [hidden]="!inicio">
+        <div class="row">
+           
+            <div>
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home"
+                            aria-selected="true" (click)="setSalir()">IR MENU</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div [hidden]="auth">
+                            <h3 class="register-heading">REGISTRO PACIENTES</h3>
+                            <form [formGroup]="formulario" class="row register-form">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="fuente" for="nombre">Nombre</label>
+                                        <span *ngIf="this.formulario.get('nombre')?.hasError('required')"
+                                            class="text-danger">
+                                            *</span>
+                                        <input type="text" class="form-control" formControlName="nombre" name="nombre"
+                                            placeholder="Nombre" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fuente" for="nombre">Apellido</label>
+                                        <span *ngIf="this.formulario.get('apellido')?.hasError('required')"
+                                            class="text-danger">
+                                            *</span>
+                                        <input type="text" class="form-control" formControlName="apellido"
+                                            name="apellido" placeholder="Apellido" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fuente" for="nombre">Edad</label>
+                                        <span *ngIf="this.formulario.get('edad')?.hasError('required')"
+                                            class="text-danger">
+                                            *</span>
+                                        <input type="number" class="form-control" formControlName="edad" name="edad"
+                                            placeholder="Edad" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fuente" for="nombre">Dni</label>
+                                        <span *ngIf="this.formulario.get('dni')?.hasError('required')"
+                                            class="text-danger">
+                                            *</span>
+                                        <input type="number" class="form-control" formControlName="dni" name="dni"
+                                            placeholder="Dni" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fuente" for="nombre">Obra Social</label>
+                                        <span *ngIf="this.formulario.get('obraSocial')?.hasError('required')"
+                                            class="text-danger">
+                                            *</span>
+                                        <input type="text" class="form-control" formControlName="obraSocial"
+                                            name="obraSocial" placeholder="Obra Social" value="" />
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="fuente" for="nombre">Correo electrónico</label>
+                                        <span *ngIf="this.formulario.get('mail')?.hasError('required')"
+                                            class="text-danger">
+                                            *</span>
+                                        <input type="email" type="text" formControlName="mail" name="mail"
+                                            class="form-control" placeholder="Mail *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fuente" for="nombre">Contraseña</label>
+                                        <span *ngIf="this.formulario.get('password')?.hasError('required')"
+                                            class="text-danger">
+                                            *</span>
+                                        <input type="password" class="form-control" formControlName="password"
+                                            name="password" placeholder="Contraseña *" value="" />
+                                    </div>
+                                    <label class="fuente mt-1" for="nombre">Debe adjuntar 2 imagenes</label>
+                                    <div class="form-group mt-2">
+                                        <input type="file" class="form-control" formControlName="foto1"
+                                            (input)="subirArchivo1($event)" accept=".jpeg,.jpg,.png,.svg" required>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <input type="file" class="form-control" formControlName="foto2"
+                                            (input)="subirArchivo2($event)" accept=".jpeg,.jpg,.png,.svg" required>
+                                    </div>
+                                    <br>
+                                    <re-captcha (resolved)="resolved($event)"
+                                        siteKey="6LfXuVYgAAAAACS99u4vJ-PYiWmPO-GpqSJ1LuWs"></re-captcha>
+                                    <input type="submit" class="btnRegister" value="Registrar"
+                                        (click)="guardarPaciente()" />
+                                        <input type="submit" class="btnCancel" value="CANCELAR"
+                                        routerLink="/" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div [hidden]="!auth">
+                        <h3 class="register-heading">REGISTRO ESPECIALISTA</h3>
+                        <form [formGroup]="formularioAux" class="row register-form">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="fuente" for="nombre">Nombre</label>
+                                    <span *ngIf="this.formulario.get('nombre')?.hasError('required')"
+                                        class="text-danger">
+                                        *</span>
+                                    <input type="text" class="form-control" formControlName="nombre" name="nombre"
+                                        placeholder="Nombre" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="fuente" for="nombre">Apellido</label>
+                                    <span *ngIf="this.formulario.get('apellido')?.hasError('required')"
+                                        class="text-danger">
+                                        *</span>
+                                    <input type="text" class="form-control" formControlName="apellido" name="apellido"
+                                        placeholder="Apellido" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="fuente" for="nombre">Edad</label>
+                                    <span *ngIf="this.formulario.get('edad')?.hasError('required')" class="text-danger">
+                                        *</span>
+                                    <input type="number" class="form-control" formControlName="edad" name="edad"
+                                        placeholder="Edad" value="" />
+                                </div>
+                                <br>
+                                <div class="input-group mb-3">
+                                    <app-listado-especialidades (onSeleccionEspecialidad)="elegirEspecialidad($event)">
+                                    </app-listado-especialidades>
+                                </div>
+                             <div>
+                                <label class="fuente" for="nombre">Especialidad seleccionada:</label>
+                               
+                                <div class="form-group"  id="seleccion-especialistas">
+                                    
+                                
+                                    <ul name="tipo" [(ngModel)]="listadoEspecialidades">
+                                        
+                                        <li *ngFor="let esp of listadoEspecialidades" readonly=true  [value]="this.formulario.value.esp"  >
+                                       
+                                         {{esp}} 
+                                            <button  class="redondo" (click)="borrarSeleccion(esp)">
+                                                X
+                                                </button> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                                <br>
+
+                                <div class="form-group">
+                                    <label class="fuente" for="nombre">Agregar especialidad (Opcional)</label>
+                                    
+                                    <input type="text" class="form-control" formControlName="especialidad"
+                                        name="especialidad" placeholder="Especialidad" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="fuente" for="nombre">Dni</label>
+                                    <span *ngIf="this.formulario.get('dni')?.hasError('required')" class="text-danger">
+                                        *</span>
+                                    <input type="number" class="form-control" formControlName="dni" name="dni"
+                                        placeholder="Dni" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="fuente" for="nombre">Correo electrónico</label>
+                                    <span *ngIf="this.formulario.get('mail')?.hasError('required')" class="text-danger">
+                                        *</span>
+                                    <input type="email" type="text" formControlName="mail" name="mail"
+                                        class="form-control" placeholder="Mail *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="fuente" for="nombre">Contraseña</label>
+                                    <span *ngIf="this.formulario.get('password')?.hasError('required')"
+                                        class="text-danger">
+                                        *</span>
+                                    <input type="password" class="form-control" formControlName="password"
+                                        name="password" placeholder="Contraseña *" value="" />
+                                </div>
+                                <label class="fuente mt-1" for="nombre">Debe adjuntar 1 imagen</label>
+                                <div class="form-group mt-2">
+                                    <input type="file" class="form-control" formControlName="foto1" name="foto1"
+                                        (input)="subirArchivo1($event)" accept=".jpeg,.jpg,.png,.svg" required>
+                                </div>
+                                <div>
+                                    <br>
+                                    <re-captcha (resolved)="resolved($event)"
+                                        siteKey="6LfXuVYgAAAAACS99u4vJ-PYiWmPO-GpqSJ1LuWs"></re-captcha>
+                                    <input type="submit" class="btnRegister" value="REGISTRAR"
+                                        (click)="guardarEspecialista()" />
+                                        <input type="submit" class="btnCancel" value="CANCELAR"
+                                        routerLink="/" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

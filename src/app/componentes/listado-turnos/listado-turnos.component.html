@@ -1,0 +1,63 @@
+<div >
+    <div >
+      
+        <table class="table table-responsive">
+            <thead>
+                <tr style="background-color:rgb(200, 209, 245);">
+                    <th>Paciente</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Especialista</th>
+                    <th>Especialidad</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let turno of listadoTurnos">
+                    <td>{{turno.pacienteNombre}}</td>
+                    <td>{{turno.fecha}}</td>
+                    <td>{{turno.hora}}</td>
+                    <td>{{turno.especialistaNombre}}</td>
+                    <td>{{turno.especialidad}}</td>
+                    <td>{{turno.estado}}</td>
+                    
+                                <div style="height: 49px;">
+                                    <td *ngIf="turno.estado != 'Cancelado' && turno.estado != 'Finalizado'  && turno.estado != 'Aceptado'"> 
+                                        <button type="button" class="btn btn-dark btn-sm" (click)="CambiarEstado(turno, 'Cancelado')">Cancelar</button>
+                                    </td> 
+                                    <div *ngIf="this.usuario.paciente" style="display: contents;">
+                                    
+                                        <td *ngIf="turno.estado == 'Finalizado' && turno.comentarioPaciente != '' && !turno.encuesta"> 
+                                            <button type="button" class="btn btn-dark btn-sm" (click)="Encuesta()">Completar encuesta</button> 
+                                        </td> 
+                                        <td *ngIf="turno.comentarioPaciente">
+                                            <button type="button" class="btn btn-dark btn-sm" (click)="VerComentario(turno)">Ver reseña</button>
+                                        </td> 
+                                        <td *ngIf="turno.estado == 'Finalizado' && !turno.comentarioPaciente">
+                                            <button type="button" class="btn btn-dark btn-sm" (click)="CambiarEstado(turno, '')">Calificar</button>
+                                        </td> 
+                                    </div>
+                                  
+                                    <div *ngIf="this.usuario.especialista" style="display: contents;">
+                                       
+                                        <td *ngIf="turno.comentarioPaciente"> 
+                                            <button type="button" class="btn btn-dark btn-sm" (click)="VerComentario(turno)">Ver reseña</button>
+                                        </td> 
+                                        <td *ngIf="turno.estado=='PENDIENTE'"> 
+                                            <button type="button" class="btn btn-dark btn-sm" (click)="CambiarEstado(turno, 'Rechazado')">Rechazar</button>
+                                        </td> 
+                                        <td *ngIf="turno.estado != 'Rechazado' && turno.estado != 'Cancelado' && turno.estado != 'Finalizado' && turno.estado != 'Aceptado'"> <!-- No Finalizado / No Cancelado / No Rechazado -->
+                                            <button type="button" class="btn btn-dark btn-sm" (click)="CambiarEstado(turno, 'Aceptado')">Aceptar</button>
+                                        </td> 
+                                        <td *ngIf="turno.estado == 'Aceptado' "> 
+                                            <button type="button" class="btn btn-dark btn-sm" (click)="CambiarEstado(turno, 'Finalizado')">Finalizar</button>
+                                        </td> 
+                                    </div>             
+                                </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

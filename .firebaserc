@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "relevamiento-e02df": {
+      "hosting": {
+        "clinicaOnline": [
+          "relevamiento-e02df"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "relevamiento-e02df"
+  }
+}

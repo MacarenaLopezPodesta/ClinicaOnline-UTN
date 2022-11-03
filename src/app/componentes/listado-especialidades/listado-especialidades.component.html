@@ -1,0 +1,6 @@
+<h6 class="my-0">Elegir especialidad</h6>
+<div class="col esp"   *ngFor="let esp of listadoEspecialidades">
+    <div class="card card-body espFoto" (click)="eligeEspecialidad(esp)">
+        <h6>{{esp.nombre}}</h6>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+.info {
+	top: 0;
+    margin:auto;
+	height: 100%;
+    width: 500px;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.carousel-indicators{
+    margin-bottom: -17px;
+}
+
+.carousel-indicators [data-bs-target]{
+	border-radius: 0px;
+    background-color: black;
+}
+
+b{
+    margin-right: 10px;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid #427ec1;
+	background-color: #427ec1;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+    margin-top: 20px;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+button:disabled{
+	border: 1px solid #8cbbf098;
+	background-color: #427dc198;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+.slide-in-right {
+	animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-right{0%{transform:translateX(1000px);opacity:0}100%{transform:translateX(0);opacity:1}}

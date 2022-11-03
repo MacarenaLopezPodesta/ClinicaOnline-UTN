@@ -1,0 +1,45 @@
+<section class="py-5 text-center container">
+    <h1 class="fw-light">Pacientes</h1>
+</section>
+<div id="container">
+<div id="box">
+    <table class="table table-responsive">
+        <thead>
+            <tr style="background-color:rgb(200, 209, 245);">
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Dni</th>
+                <th>Edad</th>
+                <th>Correo</th>
+                <th>Obra social</th>
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+            <!--tr *ngFor="let pac of listadoPacientes">
+                <td>{{pac.nombre}}</td>
+                <td>{{pac.apellido}}</td>
+                <td>{{pac.dni}}</td>
+                <td>{{pac.edad}}</td>
+                <td>mal</td>
+                <td>Paciente</td>
+                <td>Activa</td>
+                <td><img src="{{pac.foto1}}" title="{{pac.nombre}} {{pac.apellido}}" class=" btn-circle" (click)="eligePaciente(pac)"></td>
+                <button class="btn btn-float" class="btn-circle flicker-3" title="Descargar Turnos {{pac.apellido}}"  type="button" id="btnDescarga" (click)="descargaPaciente(pac)">D</button>
+            </tr-->
+           
+            <tr *ngFor="let user of this.userService.pacientes">
+                <td>{{user.nombre}}</td>
+                <td>{{user.apellido}}</td>
+                <td>{{user.dni}}</td>
+                <td>{{user.edad}}</td>
+                <td>{{user.mail}}</td>
+                <td>{{user.obraSocial}}</td>
+              
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+</div>
