@@ -18,7 +18,7 @@ pedidos por la web seleccionando el profesional o la especialidad. La duración 
 ## Log In
 
 <p  align="center">
-<img src='archivos/1.PNG' width='600'>
+<img src='archivos/1.PNG' width='700'>
 </p>
 
 ## MENU DE REGISTRO : PACIENTE / ESPECIALISTA
@@ -45,6 +45,25 @@ pedidos por la web seleccionando el profesional o la especialidad. La duración 
 
 <p  align="center">
 <img src='archivos/5.PNG' width='700'>
+</p>
+
+## SACAR TURNO
+
+<p  align="center">
+<img src='archivos/8.PNG' width='700'>
+</p>
+<p  align="center">
+<img src='archivos/9.PNG' width='700'>
+</p>
+## ESTADISTICAS / INFORME
+
+<p  align="center">
+<img src='archivos/10.PNG' width='700'>
+</p>
+## TURNOS
+
+<p  align="center">
+<img src='archivos/11.PNG' width='700'>
 </p>
 
 
