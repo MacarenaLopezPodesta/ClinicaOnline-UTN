@@ -50,8 +50,14 @@ pedidos por la web seleccionando el profesional o la especialidad. La duración 
 ## SACAR TURNO
 
 <p  align="center">
+<img src='archivos/6.PNG' width='700'>
+</p>
+<p  align="center">
 <img src='archivos/8.PNG' width='700'>
 </p>
+
+## MI PERFIL
+
 <p  align="center">
 <img src='archivos/9.PNG' width='700'>
 </p>
