@@ -18,31 +18,33 @@ pedidos por la web seleccionando el profesional o la especialidad. La duración 
 ## Log In
 
 <p  align="center">
-<img src='archivos/Captura1.PNG' width='600'>
+<img src='archivos/1.PNG' width='600'>
 </p>
 
 ## MENU DE REGISTRO : PACIENTE / ESPECIALISTA
 
 <p  align="center">
-<img src='archivos/Captura2.PNG' width='700'>
+<img src='archivos/2.PNG' width='700'>
 </p>
 
 ## REGISTRO ESPECIALISTA
 
 <p  align="center">
-<img src='archivos/Captura3.PNG' width='700'>
+<img src='archivos/3.PNG' width='700'>
 </p>
 
-## REGISTRO ADMINISTRACION
+## REGISTRO PACIENTE
 
 <p  align="center">
-<img src='archivos/Captura4.PNG' width='700'>
+<img src='archivos/4.PNG' width='700'>
 </p>
+
+
 
 ## BIENVENIDO
 
 <p  align="center">
-<img src='archivos/Captura5.PNG' width='700'>
+<img src='archivos/5.PNG' width='700'>
 </p>
 
 
