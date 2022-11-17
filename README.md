@@ -55,11 +55,13 @@ pedidos por la web seleccionando el profesional o la especialidad. La duración 
 <p  align="center">
 <img src='archivos/9.PNG' width='700'>
 </p>
+
 ## ESTADISTICAS / INFORME
 
 <p  align="center">
 <img src='archivos/10.PNG' width='700'>
 </p>
+
 ## TURNOS
 
 <p  align="center">
